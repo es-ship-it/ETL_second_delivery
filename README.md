@@ -1,6 +1,6 @@
 # Proyecto ETL — Segunda Entrega
 
-Análisis de cobertura de vacunación COVID-19 en Ecuador alineado con el ODS 3 (Salud y Bienestar). Esta entrega automatiza la ingesta, transformación y validación de datos mediante Apache Airflow, Great Expectations y SQLite, y genera visualizaciones de negocio a partir del Data Warehouse validado.
+Análisis de cobertura de vacunación COVID-19 y decesos causados por este en Ecuador alineado con el ODS 3 (Salud y Bienestar). Esta entrega automatiza la ingesta, transformación y validación de datos mediante Apache Airflow, Great Expectations y SQLite, y genera visualizaciones a partir del Data Warehouse validado.
 
 ---
 
@@ -17,6 +17,7 @@ Con esto se busca responder preguntas como:
 - ¿Qué regiones, provincias y cantones lideraron en cobertura?
 - ¿Existe relación entre el ritmo de vacunación y las muertes COVID en 2021?
 - ¿Cómo ha mejorado el índice UHC de Ecuador en los últimos años?
+- Entre otros posibles analisis derivados.
 
 ---
 
