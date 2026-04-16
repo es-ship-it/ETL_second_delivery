@@ -73,7 +73,7 @@ extract_api ─┘
 
 ---
 
-## ⭐ Modelo de datos — Star Schema
+## ⭐ Modelo de datos — Galaxy Schema
 
 ### Tablas de hechos
 
