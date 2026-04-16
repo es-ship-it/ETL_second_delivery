@@ -25,8 +25,8 @@ Con esto se busca responder preguntas como:
 
 | Meta | Indicador cubierto |
 |------|--------------------|
-| 3.8 – Cobertura universal de salud | UHC Score histórico + cobertura por cantón |
-| 3.d – Gestión de riesgos de salud | Muertes COVID vs ritmo de vacunación |
+| 3.8 – Cobertura universal de salud | UHC Score |
+| 3.d – Gestión de riesgos de salud | Muertes COVID |
 
 ---
 
@@ -38,11 +38,11 @@ Con esto se busca responder preguntas como:
         └──────────────────┴────────────────┘
                            │
                     [Apache Airflow]
-                    (DAG diario)
+                         (DAG)
                            │
               ┌────────────┴────────────┐
          [Extracción]            [Transformación]
-      3 tareas paralelas         Limpieza + Merge
+           3 tareas             Limpieza + Merge
               │                        │
               └────────────┬───────────┘
                            │
@@ -53,9 +53,12 @@ Con esto se busca responder preguntas como:
                            │
                     [Data Warehouse]
                   SQLite — Star Schema
+                           |
+                           |
+                          EDA
                            │
                     [Visualizaciones]
-                  Dashboard 8 paneles
+
 ```
 
 ### Flujo del DAG
