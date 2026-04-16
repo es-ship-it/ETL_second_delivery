@@ -79,7 +79,7 @@ extract_api ─┘
 
 | Tabla | Descripción |
 |-------|-------------|
-| `fact_vacunacion` | Dosis aplicadas por cantón y fecha |
+| `fact_vacunacion` | Dosis aplicadas |
 | `fact_decesos` | Muertes COVID diarias y acumuladas por fecha |
 
 ### Dimensiones
@@ -102,7 +102,7 @@ extract_api ─┘
 | Fuente externa | BigQuery (JHU CSSE) | Datos de muertes COVID-19 |
 | Fuente API | World Bank Data360 | Índice UHC Ecuador |
 | Almacenamiento | SQLite | Data Warehouse (star schema) |
-| Validación | Great Expectations ≥1.0 | Calidad de datos antes de cargar |
+| Validación | Great Expectations | Calidad de datos antes de cargar |
 | Transformación | Python / Pandas | Limpieza y enriquecimiento |
 | Visualización | Matplotlib / Sweetviz | Dashboard y reportes automáticos |
 | Documentación | GitHub + Markdown | Versionado y trazabilidad |
