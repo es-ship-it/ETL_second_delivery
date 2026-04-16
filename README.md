@@ -109,41 +109,6 @@ extract_api ─┘
 
 ---
 
-## ▶️ Instrucciones de replicación (Google Colab)
-
-### Requisitos previos
-
-- Cuenta de Google con acceso a Google Drive y BigQuery
-- Acceso a este repositorio
-
-### Pasos
-
-1. **Clonar el repositorio** o descargar los notebooks
-
-2. **Abrir en Google Colab** el archivo `ETL_second_delivery_def.ipynb`
-
-3. **Montar Google Drive** y ajustar las rutas.
-
-4. **Autenticación con BigQuery:**
-   ```python
-   from google.colab import auth, userdata
-   auth.authenticate_user()
-   os.environ["GCP_PROJECT_ID"] = userdata.get("project_gcp")
-   ```
-
-5. **Ejecutar las celdas en orden:**
-   - Instalación de Airflow y Great Expectations
-   - Definición del DAG
-   - Creación del usuario administrador
-   - Inicio del webserver + scheduler + túnel Cloudflare
-
-6. **Acceder a la UI de Airflow** con la URL generada por Cloudflare  
-   `Usuario: admin | Contraseña: admin`
-
-7. **Para el EDA**, abrir `EDA_second_delivery_ETL_def.ipynb` y ejecutar las celdas en orden (requiere que el ETL haya corrido primero y los archivos `tf_*.csv` estén en Drive)
-
----
-
 ## 📊 Análisis y visualizaciones
 
 El dashboard final incluye:
