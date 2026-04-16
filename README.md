@@ -98,14 +98,14 @@ extract_api ─┘
 
 | Capa | Herramienta | Propósito |
 |------|-------------|-----------|
-| Orquestación | Apache Airflow 2.11 | Automatización y scheduling del ETL |
-| Fuente externa | BigQuery (JHU CSSE) | Datos de muertes COVID-19 |
+| Orquestación | Apache Airflow | Automatización y scheduling del ETL |
+| Fuente externa | BigQuery | Datos de muertes COVID-19 |
 | Fuente API | World Bank Data360 | Índice UHC Ecuador |
 | Almacenamiento | SQLite | Data Warehouse (star schema) |
 | Validación | Great Expectations | Calidad de datos antes de cargar |
 | Transformación | Python / Pandas | Limpieza y enriquecimiento |
 | Visualización | Matplotlib / Sweetviz | Dashboard y reportes automáticos |
-| Documentación | GitHub + Markdown | Versionado y trazabilidad |
+| Documentación | GitHub + Markdown | Documentacion, versionado y trazabilidad |
 
 ---
 
