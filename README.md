@@ -107,37 +107,6 @@ extract_api ─┘
 | Visualización | Matplotlib / Sweetviz | Dashboard y reportes automáticos |
 | Documentación | GitHub + Markdown | Versionado y trazabilidad |
 
-> **Nota sobre SQLite:** Se utiliza SQLite en lugar de PostgreSQL/MySQL por las restricciones del entorno Google Colab (sin servidor dedicado). El esquema relacional, las claves foráneas y las restricciones de integridad se mantienen igual que en un motor de producción.
-
----
-
-## 📁 Estructura del repositorio
-
-```
-etl-segunda-entrega/
-│
-├── dags/
-│   └── etl_vacunacion_ecuador.py      # DAG principal de Airflow
-│
-├── notebooks/
-│   ├── ETL_second_delivery_def.ipynb  # Pipeline completo (ETL + Airflow)
-│   └── EDA_second_delivery_ETL_def.ipynb  # Análisis exploratorio + Dashboard
-│
-├── docs/
-│   ├── arquitectura_pipeline.png      # Diagrama de arquitectura
-│   └── star_schema.png                # Diagrama del modelo de datos
-│
-├── visualizations/
-│   ├── dashboard_vacunacion_ecuador.png
-│   ├── eda_covid_timeseries.png
-│   ├── sweetviz_fact.html
-│   ├── sweetviz_covid.html
-│   └── sweetviz_uhc.html
-│
-├── README.md
-└── .gitignore
-```
-
 ---
 
 ## ▶️ Instrucciones de replicación (Google Colab)
@@ -153,10 +122,7 @@ etl-segunda-entrega/
 
 2. **Abrir en Google Colab** el archivo `ETL_second_delivery_def.ipynb`
 
-3. **Montar Google Drive** y ajustar las rutas:
-   ```python
-   ruta_directorio_drive = "/content/drive/Shared drives/TU_CARPETA/"
-   ```
+3. **Montar Google Drive** y ajustar las rutas.
 
 4. **Autenticación con BigQuery:**
    ```python
@@ -180,7 +146,7 @@ etl-segunda-entrega/
 
 ## 📊 Análisis y visualizaciones
 
-El dashboard final (8 paneles) incluye:
+El dashboard final incluye:
 
 1. Dosis totales por mes
 2. Composición de dosis por mes (apilado)
@@ -204,19 +170,6 @@ El dashboard final (8 paneles) incluye:
 | `uhc_index` | Año único, score entre 0–100 |
 | `fact_merged` | Año único, dosis ≥ 0 |
 
-Solo se carga al DWH si **todas las validaciones pasan**. En caso contrario, el DAG lanza excepción y detiene la ejecución.
+Solo se carga al DWH si **todas las validaciones pasan**.
 
 ---
-
-## 📌 Decisiones de diseño
-
-- **Datos de dosis son acumulativos por cantón:** se toma el `MAX` por cantón/mes antes de sumar a nivel nacional, para evitar doble conteo.
-- **Muertes diarias COVID:** se calculan como diferencia entre valores acumulados consecutivos (`diff().clip(lower=0)`).
-- **UHC Index:** se filtra solo `INDEX_COMP_LABEL = "Full index"` para evitar sub-indicadores.
-- **Merge por año:** las tres fuentes se unen a granularidad anual dado que el UHC Score solo tiene datos anuales.
-
----
-
-## 👥 Equipo
-
-Proyecto desarrollado para el curso **ETL (G51)** — Ingeniería de Datos e Inteligencia Artificial, Universidad Autónoma de Occidente.
